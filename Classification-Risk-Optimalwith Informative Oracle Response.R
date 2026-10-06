@@ -2,7 +2,7 @@
 # Classification-Risk-Optimal Label Acquisition
 # with Informative Oracle Response
 #
-# REVISED simulation program
+#simulation program
 #
 # Study A: ORACLE acquisition
 #   - acquisition scores use the TRUE model parameters;
