@@ -1,22 +1,5 @@
 
 # ============================================================
-# Consumer Complaints: informative human-oracle response
-# Corrected curvature experiment, revision 2026-10-06
-#
-# Corrections: tied-class probability in boundary curvature,
-# Student t Monte Carlo intervals, explicit Holm comparisons,
-# numerical preflight checks, and strict result completeness.
-# The kernel bandwidth remains a working smoothing approximation;
-# this script does not certify its accuracy or the asymptotic theorem.
-#
-# Real human abstentions are retained. On response, benchmark truth
-# is revealed rather than the potentially noisy crowd annotation.
-# All methods use the same penalized joint estimator.
-# Unsupervised TF-IDF/SVD and scaling use all narratives BEFORE
-# splits: this is a transductive feature representation.
-# Every invocation creates a fresh output folder and checkpoints.
-# Preserve the old output for comparison.
-# ============================================================
 
 # ============================================================
 # 0. Packages
@@ -55,8 +38,10 @@ set.seed(20260906)
 # 1. Paths and experiment settings
 # ============================================================
 
-MAIN_DIR <-
-  "C:/Users/SETOUDEHTAZANGI/Downloads/my SSL papers/paper 3 on ssl"
+# Run R from the repository root.
+MAIN_DIR <- normalizePath(
+  ".", winslash = "/", mustWork = TRUE
+)
 
 if (!dir.exists(MAIN_DIR)) {
   stop("Project folder not found: ", MAIN_DIR)
