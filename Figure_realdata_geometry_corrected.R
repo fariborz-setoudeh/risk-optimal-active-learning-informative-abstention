@@ -62,8 +62,10 @@ set.seed(20260906)
 # 1. Paths
 # ------------------------------------------------------------
 
-MAIN_DIR <-
-  "C:/Users/SETOUDEHTAZANGI/Downloads/my SSL papers/paper 3 on ssl"
+# Run R from the repository root.
+MAIN_DIR <- normalizePath(
+  ".", winslash = "/", mustWork = TRUE
+)
 
 RESULT_DIR <- file.path(
   MAIN_DIR,
