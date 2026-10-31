@@ -1,9 +1,7 @@
 
 # ============================================================
 # FINAL REAL-DATA GEOMETRY FIGURE
-# Current paper:
-# Classification-Risk-Optimal Label Acquisition
-# with Informative Oracle Response
+# Risk-optimal active learning with informative abstention
 #
 # Consumer Complaints -- uncertainty-response geometry
 #
