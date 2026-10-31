@@ -1,6 +1,5 @@
 # ============================================================
-# Classification-Risk-Optimal Label Acquisition
-# with Informative Oracle Response
+# Risk-optimal active learning with informative abstention
 #
 #simulation program
 #
