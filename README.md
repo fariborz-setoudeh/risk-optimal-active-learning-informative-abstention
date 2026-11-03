@@ -66,7 +66,7 @@ Both studies estimate the model from the acquired query-response data.
 Run:
 
 ```r
-source("Classification-Risk-Optimalwith Informative Oracle Response.R")
+source("Simulation_response_term_ablation.R")
 ```
 
 Keep `DEBUG <- FALSE` for the reported main experiment.
