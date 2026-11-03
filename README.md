@@ -4,7 +4,7 @@ R code and reproducibility materials for the manuscript:
 
 **Risk-optimal active learning with informative abstention**
 
-Fariborz Setoudehtazangi, Cuong V. Nguyen, and Geoffrey J. McLachlan.
+Fariborz Setoudehtazangi, and Geoffrey J. McLachlan.
 
 The paper studies label acquisition when a queried oracle may abstain.
 The acquisition criterion accounts for information supplied by both a
