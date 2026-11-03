@@ -12,8 +12,9 @@ returned class label and the observed response or abstention outcome.
 
 ## Files
 
-- `Classification-Risk-Optimalwith Informative Oracle Response.R`:
-  binary logistic simulation studies, numerical summaries, and simulation figures.
+- `Simulation_response_term_ablation.R`:
+  binary logistic simulations, response-outcome ablation,
+  paired comparisons, numerical summaries, and simulation figures.
 - `Real_data_corrected_curvature.R`:
   Consumer Complaints acquisition experiment, diagnostics,
   paired comparisons, and performance figures.
@@ -47,9 +48,15 @@ The simulation script compares:
 - Ordinary classification-risk acquisition
 - Response-discounted acquisition
 - Response-aware acquisition
+- Label-only acquisition using full information (ablation)
 
-It includes oracle and adaptive acquisition studies under
-noninformative and informative response mechanisms.
+The ablation retains the full information matrix and joint estimation
+used by response-aware acquisition, but omits the explicit
+response-outcome term from the acquisition score.
+
+The script includes oracle and adaptive acquisition studies under
+noninformative, moderately informative, and strongly informative
+response mechanisms.
 
 The main settings are:
 
@@ -75,13 +82,21 @@ Setting `DEBUG <- TRUE` produces a shorter diagnostic run.
 The optional pilot-size sensitivity experiment is disabled by default
 through `RUN_PILOT_SENSITIVITY <- FALSE`.
 
-Simulation outputs are written to:
+Simulation outputs are written to a new timestamped folder beginning with:
 
 ```text
-simulation_response_aware_revised/
+simulation_response_term_ablation_FULL_
 ```
 
-Preserve completed outputs before running the simulation again.
+Outputs include simulation results, paired ablation comparisons,
+numerical checks, and figures. The `FULL` prefix refers to the
+main run with `DEBUG <- FALSE`.
+
+For the ablation, differences are calculated as response-aware minus
+label-only excess risk. Negative differences favour response-aware
+acquisition. Holm correction is applied separately within the oracle
+and adaptive studies, across the nine scenario–budget comparisons
+in each study.
 
 ## Consumer Complaints data
 
@@ -105,10 +120,11 @@ annotation files. External data remain subject to their providers' terms.
 The analysis retains 2,999 usable complaints, six product categories,
 and ten human oracles. It preserves each oracle's observed response
 or abstention. When an oracle responds, the benchmark Product class
-is revealed.
+is revealed; the worker's potentially erroneous class annotation
+is not used as the returned label.
 
 This replay preserves human abstention patterns while using benchmark
-labels upon response; it does not model errors in returned labels.
+labels upon response. It does not model errors in returned labels.
 
 ## Real-data experiment
 
@@ -154,6 +170,12 @@ across the 30 replications. The primary comparison family contains
 
 These intervals describe variation across repeated splits and
 acquisitions for the fixed dataset and ten workers.
+
+The real-data comparison between response-aware and
+response-discounted acquisition evaluates complete acquisition rules
+with different information matrices. It does not isolate the explicit
+response-outcome term; that distinction is examined by the simulation
+ablation.
 
 ## Real-data geometry figure
 
@@ -207,16 +229,14 @@ Although checkpoint files are saved, sourcing it again does not
 automatically resume the previous run.
 
 The sequential, regularized real-data implementation illustrates the
-criterion; it does not establish the assumptions or conclusion of the
+criterion. It does not establish the assumptions or conclusion of the
 two-stage oracle-attainment theorem.
 
 ## Citation
 
-Setoudehtazangi, F., and McLachlan, G. J. (2026).
+Setoudehtazangi, F., Nguyen, C. V., and McLachlan, G. J. (2026).
 *Risk-optimal active learning with informative abstention*.
 Manuscript.
-
-Publication details will be updated following publication.
 
 ## Contact
 
